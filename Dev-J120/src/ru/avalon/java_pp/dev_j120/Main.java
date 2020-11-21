@@ -12,6 +12,7 @@ package ru.avalon.java_pp.dev_j120;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!!!");
+        System.out.println("21.11.2020 11:06");
     }
           
 }
