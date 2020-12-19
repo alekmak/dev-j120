@@ -5,7 +5,7 @@
  */
 package userInterface;
 
-import controllers.ClientsController;
+import controllers.OrderClientsController;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import javax.swing.JFrame;
@@ -22,11 +22,11 @@ import models.OrderClient;
  * @author Алексей
  */
 public class MainFrame extends JFrame{
-    private ClientsController controller;
+    private OrderClientsController controller;
     private ClientsTableModel clientsTableModel;
     private JTable mainTable;
 
-    public MainFrame(ClientsController controller) {
+    public MainFrame(OrderClientsController controller) {
         super("Система учёта заказов"); //заголовок
         setBounds(300, 200, 900, 600); //размер окна
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -51,6 +51,7 @@ public class MainFrame extends JFrame{
         mi.addActionListener(e -> editClient());
         m.add(mi);
         mi = new JMenuItem("Удалить");
+        mi.addActionListener(e -> deleteClient());
         m.add(mi);
         
         mb.add(m);
@@ -92,6 +93,17 @@ public class MainFrame extends JFrame{
         
         
     }
-    
+    private void deleteClient(){
+       int row = mainTable.getSelectedRow();
+       if(row == -1)
+           return;
+       String phNum = controller.get(row).getPhoneNumber().toString();
+       if(JOptionPane.showConfirmDialog(this, "Хотите удалить" + phNum + "?" ,"Удаление строки заказа", 
+               JOptionPane.YES_NO_OPTION,
+               JOptionPane.WARNING_MESSAGE)
+               == JOptionPane.YES_OPTION){
+        clientsTableModel.deleteClient(row);
+    }
+    }
     
 }

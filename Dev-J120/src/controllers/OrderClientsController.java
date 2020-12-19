@@ -19,11 +19,11 @@ import models.Product;
  *
  * @author Алексей
  */
-public class ClientsController {
+public class OrderClientsController {
     private List<OrderClient> clients = new ArrayList<>();
     private Set<PhoneNumber> numbers = new HashSet<>();
 
-   public ClientsController() {       //пример
+   public OrderClientsController() {       //пример
         clients.add(new OrderClient(new Date(2020, 1, 1), "Иванов", new PhoneNumber("123", "9654112"), "Советская",
                 30, "Готовится", new Date(2020, 1, 2)));
         clients.add(new OrderClient(new Date(2020, 11, 10), "Смирнов", new PhoneNumber("123", "9654112"), "Тверская",
@@ -37,7 +37,9 @@ public class ClientsController {
         clients.add(new OrderClient(new Date(), name, num, address));
         numbers.add(num);
     }
-    public void remove(){
+    public void remove(int index){
+        OrderClient c = clients.remove(index);
+        numbers.remove(c.getPhoneNumber());
         
     }
     public int getClientsCount()

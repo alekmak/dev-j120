@@ -5,7 +5,7 @@
  */
 package userInterface;
 
-import controllers.ClientsController;
+import controllers.OrderClientsController;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,10 +42,10 @@ public class ClientsTableModel implements TableModel
         Date.class,
        
     };
-    private ClientsController controller;
+    private OrderClientsController controller;
     private List<TableModelListener> listeners;
 
-    public ClientsTableModel(ClientsController controller) {
+    public ClientsTableModel(OrderClientsController controller) {
         this.controller = controller;
         this.listeners = new ArrayList<>();
     }
@@ -124,5 +124,11 @@ public class ClientsTableModel implements TableModel
         cl.setAdress(addr);
         fireTableModelEvent(new TableModelEvent(this, index, index,
                 TableModelEvent.ALL_COLUMNS, TableModelEvent.UPDATE));
+    }
+    
+    public void deleteClient(int index) {
+        controller.remove(index);
+        fireTableModelEvent(new TableModelEvent(this, index, index,
+                TableModelEvent.ALL_COLUMNS, TableModelEvent.DELETE));
     }
 }

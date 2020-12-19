@@ -5,7 +5,7 @@
  */
 package models;
 
-import controllers.ClientsController;
+import controllers.OrderClientsController;
 import userInterface.MainFrame;
 
 /**
@@ -14,7 +14,7 @@ import userInterface.MainFrame;
  */
 public class Main {
     public static void main(String[] args) {
-        ClientsController controller = new ClientsController();
+        OrderClientsController controller = new OrderClientsController();
         MainFrame f = new MainFrame(controller);
         f.setVisible(true);
     }
