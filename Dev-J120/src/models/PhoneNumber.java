@@ -5,13 +5,15 @@
  */
 package models;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author Алексей
  */
-public class PhoneNumber {
+public class PhoneNumber implements Serializable {
+
     private String areaCode;
     private String localNum;
 
@@ -21,12 +23,15 @@ public class PhoneNumber {
         this.areaCode = areaCode;
         this.localNum = localNum;
     }
+
     private void check(String attrVal, String attrName) {
-        if(attrVal == null || attrVal.isBlank())
+        if (attrVal == null || attrVal.isBlank()) {
             throw new IllegalArgumentException(attrName + " is empty.");
-        for(int i = 0; i < attrVal.length(); i++) {
-            if(!Character.isDigit(attrVal.charAt(i)))
+        }
+        for (int i = 0; i < attrVal.length(); i++) {
+            if (!Character.isDigit(attrVal.charAt(i))) {
                 throw new IllegalArgumentException(attrName + " must contain digits only.");
+            }
         }
     }
 
@@ -63,7 +68,6 @@ public class PhoneNumber {
         }
         return true;
     }
-    
 
     @Override
     public String toString() {

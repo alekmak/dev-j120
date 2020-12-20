@@ -5,24 +5,23 @@
  */
 package models;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Алексей
  */
-public class OrderPosition {
-  private String product;
-  private double price;
-  private int number;
-  
+public class OrderPosition implements Serializable {
+
+    private String product;
+    private double price;
+    private int number;
 
     public OrderPosition(String product, double price, int number) {
         this.product = product;
         this.price = price;
         this.number = number;
-        
+
     }
-  
-  
-            
 
 }

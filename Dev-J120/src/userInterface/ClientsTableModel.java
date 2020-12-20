@@ -48,6 +48,9 @@ public class ClientsTableModel implements TableModel
     public ClientsTableModel(OrderClientsController controller) {
         this.controller = controller;
         this.listeners = new ArrayList<>();
+        int rowNum = controller.getClientsCount() - 1;
+        fireTableModelEvent(new TableModelEvent(this, rowNum, rowNum, 
+                TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT));
     }
     
 

@@ -10,13 +10,14 @@ package models;
  * @author Алексей
  */
 public class Product {
-    private int articul;
+
+    private String articul;
     private String title;
     private String color;
     private int price;
     private int balance;
 
-    public Product(int articul, String title, String color, int price, int balance) {
+    public Product(String articul, String title, String color, int price, int balance) {
         this.articul = articul;
         this.title = title;
         this.color = color;
@@ -24,11 +25,14 @@ public class Product {
         this.balance = balance;
     }
 
-    public int getArticul() {
+    public Product() {
+    }
+
+    public String getArticul() {
         return articul;
     }
 
-    public void setArticul(int articul) {
+    public void setArticul(String articul) {
         this.articul = articul;
     }
 
@@ -63,5 +67,11 @@ public class Product {
     public void setBalance(int balance) {
         this.balance = balance;
     }
-    
+
+    @Override
+    public String toString() {
+
+        return articul + ";" + title + ";" + color + ";" + price + ";" + balance;
+    }
+
 }

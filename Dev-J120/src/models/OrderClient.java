@@ -5,50 +5,51 @@
  */
 package models;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author Алексей
  */
-public class OrderClient {
+public class OrderClient implements Serializable {
+
     private Date dateCreate;
     private String name;
-    private PhoneNumber PhoneNumber;
+    private PhoneNumber phoneNumber;
     private String adress;
     private int sale;
     private String status;
     private Date dateShip;
-    private OrderPosition OrderPosition;
+    private List<OrderPosition> orderPosition;
 
     public OrderClient(Date dateCreate, String name, PhoneNumber PhoneNumber, String adress, int sale, String status, Date dateShip) {
         this.dateCreate = dateCreate;
         this.name = name;
-        this.PhoneNumber = PhoneNumber;
+        this.phoneNumber = PhoneNumber;
         this.adress = adress;
         this.sale = sale;
         this.status = status;
         this.dateShip = dateShip;
-        
+
     }
 
     public OrderClient(Date dateCreate, String name, PhoneNumber PhoneNumber, String adress) {
         this.dateCreate = dateCreate;
         this.name = name;
-        this.PhoneNumber = PhoneNumber;
+        this.phoneNumber = PhoneNumber;
         this.adress = adress;
-       
-    }
-  
-    public OrderPosition getOrderPosition() {
-        return OrderPosition;
+
     }
 
-    public void setOrderPosition(OrderPosition OrderPosition) {
-        this.OrderPosition = OrderPosition;
+    public List<OrderPosition> getOrderPosition() {
+        return orderPosition;
     }
 
-   
+    public void setOrderPosition(List<OrderPosition> orderPosition) {
+        this.orderPosition = orderPosition;
+    }
 
     public Date getDateCreate() {
         return dateCreate;
@@ -67,11 +68,11 @@ public class OrderClient {
     }
 
     public PhoneNumber getPhoneNumber() {
-        return PhoneNumber;
+        return phoneNumber;
     }
 
     public void setPhoneNumber(PhoneNumber PhoneNumber) {
-        this.PhoneNumber = PhoneNumber;
+        this.phoneNumber = PhoneNumber;
     }
 
     public String getAdress() {
@@ -105,6 +106,5 @@ public class OrderClient {
     public void setDateShip(Date dateShip) {
         this.dateShip = dateShip;
     }
-    
-}
 
+}
