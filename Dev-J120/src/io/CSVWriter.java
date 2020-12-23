@@ -19,7 +19,7 @@ import models.Product;
 public class CSVWriter {
 
     public void writeProducts(String filename, List<Product> products) {
-        try ( FileWriter writer = new FileWriter(filename, StandardCharsets.UTF_8);  BufferedWriter bw = new BufferedWriter(writer)) {
+        try (FileWriter writer = new FileWriter(filename, StandardCharsets.UTF_8);  BufferedWriter bw = new BufferedWriter(writer)) {
             for (Product product : products) {
                 bw.write(product.toString());
 

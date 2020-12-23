@@ -45,8 +45,8 @@ public class Main {
                 super.windowClosing(e);
                 OrderWriter orderWriter = new OrderWriter();
                 orderWriter.write(ordersFileName, orders);
-                CSVWriter csvWriter = new CSVWriter();
-                csvWriter.writeProducts(csvFilename, products);
+                //CSVWriter csvWriter = new CSVWriter();
+               // csvWriter.writeProducts(csvFilename, products);
             }
 
         });
